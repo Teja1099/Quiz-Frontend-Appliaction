@@ -1,3 +1,4 @@
+import Index from "./pages/Index";
 import LoginContext from "./component/context/LoginContext";
 import { useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
@@ -11,10 +12,6 @@ import UserList from "./pages/UserList";
 import Topbar from "./component/topbar/Topbar";
 import Sidebar from "./component/sidebar/Sidebar";
 import style from "./app.css";
-import User from "./pages/user/User";
-import Settings from "./pages/Settings";
-import Questions from "./pages/Questions";
-import FinalScreen from "./pages/FinalScreen";
 
 function App() {
   const loginCtx = useContext(LoginContext);
@@ -24,23 +21,10 @@ function App() {
         {loginCtx.isLoggedIn && <Topbar />}
         {/* <Container fluid> */}
         <div className="container1">
-          {loginCtx.isLoggedIn && (
-            <div style={{ width: "15%" }}>
-              <Sidebar />
-            </div>
-          )}
+          {loginCtx.isLoggedIn && <Sidebar />}
 
           <div className="others">
             <Routes>
-              {loginCtx.isLoggedIn && (
-                <Route path="/quiz" element={<Settings />} />
-              )}
-              {loginCtx.isLoggedIn && (
-                <Route path="/questions" element={<Questions />} />
-              )}
-              {loginCtx.isLoggedIn && (
-                <Route path="/score" element={<FinalScreen />} />
-              )}
               {!loginCtx.isLoggedIn && (
                 <Route path="*" element={<Navigate to="/login" />} />
               )}
@@ -53,7 +37,7 @@ function App() {
               )}
               <Route path="/signup" element={<SignUp />} />
               {loginCtx.isLoggedIn && (
-                <Route path="*" element={<Navigate to="/profile" />} />
+                <Route path="*" element={<Navigate to="/index" />} />
               )}
               {loginCtx.isLoggedIn && (
                 <Route path="/userList" element={<UserList />} />
@@ -67,9 +51,6 @@ function App() {
               )}
               {loginCtx.isLoggedIn && (
                 <Route path="/userList" element={<UserList />} />
-              )}
-              {loginCtx.isLoggedIn && (
-                <Route path="/user/:userId" element={<User />} />
               )}
             </Routes>
           </div>

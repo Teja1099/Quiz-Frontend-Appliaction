@@ -1,0 +1,34 @@
+.userList {
+  flex: 4;
+}
+.userDiv {
+  display: flex;
+  align-items: center;
+}
+.userLogo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.edit {
+  color: green;
+  cursor: pointer;
+  /* border: none;
+  height: 30px;
+  padding-bottom: 20px;
+  align-items: center;
+  border-radius: 10px;
+
+  background-color: #3bb077;
+  color: white;
+ */
+  margin-right: 20px;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+}
